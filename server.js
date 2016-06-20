@@ -3,11 +3,16 @@ var morgan = require('morgan');
 var request = require('request');
 
 var app = express();
-var LISTEN_PORT = process.env.LISTEN_PORT;
+var LISTEN_PORT = process.env.LISTEN_PORT || 80;
 var receiveCount = 0;
 
-var sendUrl = process.env.SEND_IP;
-var sendLoops = process.env.LOOPS;
+var sendProtocol = process.env.PROTOCOL || 'http://';
+var sendIP = process.env.SEND_IP || '127.0.0.1';
+var sendPort = process.env.SEND_PORT || 80;
+var sendLoops = process.env.LOOPS || 10;
+
+var sendUrl = sendProtocol + sendIP + sendPort;
+
 var sendCount = 0;
 var responseCount = 0;
 
