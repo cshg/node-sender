@@ -11,7 +11,7 @@ var sendIP = process.env.SEND_IP || '127.0.0.1';
 var sendPort = process.env.SEND_PORT || 80;
 var sendLoops = process.env.LOOPS || 10;
 
-var sendUrl = sendProtocol + sendIP + sendPort;
+var sendUrl = sendProtocol + sendIP + ':' + sendPort;
 
 var sendCount = 0;
 var responseCount = 0;
