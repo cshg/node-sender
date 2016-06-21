@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var request = require('request');
 
 var app = express();
-var LISTEN_PORT = process.env.LISTEN_PORT || 80;
+var LISTEN_PORT = process.env.LISTEN_PORT || 3000;
 var receiveCount = 0;
 
 var sendProtocol = process.env.PROTOCOL || 'http://';
@@ -20,7 +20,7 @@ app.use(morgan('dev'));
 
 app.get('/', function(req, res) {
   receiveCount++;
-  res.send('GET request received. Total number: ' + receiveCount);
+  res.send('Received GET requests: ' + receiveCount + ' Sent GET requests: ' + sendCount + ' Target url: ' + sendUrl);
 });
 
 app.listen(LISTEN_PORT, function() {
